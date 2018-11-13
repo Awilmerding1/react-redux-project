@@ -6,9 +6,9 @@ class GroceryList extends Component {
 
   render() {
      const { groceryList, marketId, deleteGroceryItem } = this.props;
-     const associatedMarkets = groceryList.filter(groceryItem => groceryItem.restaurantId === marketId);
+     const associatedMarkets = groceryList.filter(groceryItem => groceryItem.marketId === marketId);
       const groceryList = associatedMarkets.map((groceryItem, index) => {
-     return <GroceryItem key={index} review={groceryItem} deleteReview={deleteGroceryItem} />
+     return <GroceryItem key={index} groceryItem={groceryItem} deleteGroceryItem={deleteGroceryItem} />
       })
 
     return (

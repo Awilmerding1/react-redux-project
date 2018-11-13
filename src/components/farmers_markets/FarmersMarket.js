@@ -5,7 +5,7 @@ import FarmersMarketsContainer from '../../containers/FarmersMarketsContainer'
 class FarmersMarket extends Component {
 
   handleOnClick = () => {
-
+     this.props.deleteFarmersMarket(this.props.farmersMarket.id);
   }
 
   render() {
@@ -16,7 +16,7 @@ class FarmersMarket extends Component {
         <li>
           {farmersMarket.text}
           <button onClick={this.handleOnClick}>Delete</button>
-          <GroceryListsContainer  />
+          <GroceryListsContainer farmersMarket={farmersMarket} />
         </li>
       </div>
     );
