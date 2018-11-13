@@ -10,7 +10,6 @@ export default function farmersMarketsReducer(state ={loading:true, farmersMarke
       return {...state, farmersMarkets: action.payload, loading: false}
       case 'ADD_GROCERY_ITEM':
         const groceryItem = { text: action.groceryItem.text, marketId: action.groceryItem.marketId, id: cuidFn() };
-        debugger;
         return { ...state,
           groceryList: [...state.groceryList, groceryItem]
         }

@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 export function filterFetchFarmersMarkets(data) {
+  console.log()
   return (dispatch) => {
 	  dispatch({ type: 'LOADING_MARKETS' })
   return fetch(`https://data.cityofnewyork.us/resource/94pk-v63f.json?zipcode=${data.search}`)
