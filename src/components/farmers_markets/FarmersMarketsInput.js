@@ -10,15 +10,19 @@ class FarmersMarketsInput extends Component {
     };
   };
 
-  handleOnChange(event) {
+  handleOnChange = (event) =>{
    this.setState({
-     search: event.target.value
+     [event.target.name]: event.target.value
    });
  }
+
 
  handleOnSubmit = (event) => {
   event.preventDefault();
   this.props.handleSubmit(this.state)
+  this.setState({
+    search: ''
+  });
 }
 
   render() {
@@ -28,16 +32,17 @@ class FarmersMarketsInput extends Component {
        <label>Search for a Market By ZipCode: </label>
          <input
            type="text"
+           name='search'
            value={this.state.search}
-           onChange={(event) => this.handleOnChange(event)} />
+           onChange={this.handleOnChange} /><br/><br/>
+         <label>Monday</label><input type="checkbox" value="monday" name="monday" onChange={this.handleOnChange}></input>
+         <label>Tuesday</label><input type="checkbox" value="tuesday" name="tuesday" onChange={this.handleOnChange}></input>
+         <label>Wednesday</label><input type="checkbox" value="wednesday" name="wednesday" onChange={this.handleOnChange}></input>
+         <label>Thursday</label><input type="checkbox" value="thursday" name="thursday" onChange={this.handleOnChange}></input>
+         <label>Friday</label><input type="checkbox" value="friday" name="friday" onChange={this.handleOnChange}></input>
+         <label>Saturday</label><input type="checkbox" value="saturday" name="saturday" onChange={this.handleOnChange}></input>
+         <label>Sunday</label><input type="checkbox" value="sunday" name="sunday" onChange={this.handleOnChange}></input><br/><br/>
          <input type="submit" />
-         <label>Monday</label><input type="checkbox" name="monday"></input>
-         <label>Tuesday</label><input type="checkbox" name="tuesday"></input>
-         <label>Wednesday</label><input type="checkbox" name="wednesday"></input>
-         <label>Thursday</label><input type="checkbox" name="thursday"></input>
-         <label>Friday</label><input type="checkbox" name="friday"></input>
-         <label>Saturday</label><input type="checkbox" name="saturday"></input>
-         <label>Sunday</label><input type="checkbox" name="sunday"></input>
        </form>
      </div>
     );
