@@ -6,32 +6,29 @@ class FarmersMarketsInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ''
+      search: ''
     };
   };
 
   handleOnChange(event) {
    this.setState({
-     text: event.target.value,
+     search: event.target.value,
    });
  }
 
- handleOnSubmit(event) {
+ handleOnSubmit = (event) => {
   event.preventDefault();
-  this.props.addFarmersMarket(this.state.text);
-  this.setState({
-    text: ''
-  });
+  this.props.handleSubmit(this.state)
 }
 
   render() {
     return (
       <div>
-       <form onSubmit={(event) => this.handleOnSubmit(event)}>
+       <form onSubmit={this.handleOnSubmit}>
        <label>Search for a Market: </label>
          <input
            type="text"
-           value={this.state.text}
+           value={this.state.search}
            onChange={(event) => this.handleOnChange(event)} />
          <input type="submit" />
        </form>

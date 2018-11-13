@@ -2,19 +2,29 @@ import React, { Component } from 'react'
 import FarmersMarketsInput from '../components/farmers_markets/FarmersMarketsInput'
 import FarmersMarkets from '../components/farmers_markets/FarmersMarkets'
 import {fetchFarmersMarkets} from '../actions/fetchFarmersMarkets'
+import {filterFetchFarmersMarkets} from '../actions/filterFetchFarmersMarkets'
+
 import { connect } from 'react-redux';
 
 class FarmersMarketsContainer extends Component {
 
-    componentDidMount() {
+  componentDidMount() {
      this.props.fetchFarmersMarkets()
    }
+
+
+handleSubmit = (data) => {
+  console.log(data)
+  let returnData = this.props.filterFetchFarmersMarkets(data)
+  console.log()
+   }
+
 
   render() {
     return (
       <div>
-        <FarmersMarketsInput addFarmersMarket={this.props.addFarmersMarket}/>
-        <FarmersMarkets farmersMarkets={this.props.farmersMarkets} deleteFarmersMarket={this.props.deleteFarmersMarket}/>
+        <FarmersMarketsInput handleSubmit={this.handleSubmit}/>
+        <FarmersMarkets farmersMarkets={this.props.farmersMarkets}/>
       </div>
     )
   }
@@ -28,4 +38,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {fetchFarmersMarkets})(FarmersMarketsContainer)
+export default connect(mapStateToProps, {fetchFarmersMarkets, filterFetchFarmersMarkets})(FarmersMarketsContainer)
