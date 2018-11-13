@@ -25,7 +25,8 @@ class GroceryListsInput extends Component {
   render() {
     return (
       <div>
-      <form onSubmit={(event) => this.handleOnSubmit(event)}>
+      <form onSubmit={(event) => this.handleOnSubmit(event)} style={{textAlign: 'right'}}>
+      <label>Add an Item to Purchase:</label>
         <input
           type="text"
           value={this.state.text}

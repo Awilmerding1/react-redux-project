@@ -9,10 +9,10 @@ class FarmersMarket extends Component {
 
     return (
       <div>
-        <li onClick={this.handleOnClick}>
-          {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough} {farmersMarket.zipcode}
+        <li onClick={this.handleOnClick} style={{textAlign: 'left'}}>
+          {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough} {farmersMarket.zipcode}<br/><br/>
           <GroceryListsContainer farmersMarket={farmersMarket} />
-        </li>
+        </li><br/><br/>
       </div>
     );
   }

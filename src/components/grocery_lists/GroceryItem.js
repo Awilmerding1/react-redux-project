@@ -13,9 +13,10 @@ class GroceryItem extends Component {
     return (
       <div>
         <li>
-          {groceryItem.text}
+          {groceryItem.text}  
+          <button onClick={this.handleOnClick}> Delete </button>
         </li>
-        <button onClick={this.handleOnClick}> Delete </button>
+
       </div>
     );
   }
