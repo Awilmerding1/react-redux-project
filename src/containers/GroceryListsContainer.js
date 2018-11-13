@@ -8,18 +8,19 @@ class GroceryListsContainer extends Component {
   render() {
     return (
       <div>
-        <GroceryListsInput />
-        <GroceryLists />
+        <GroceryListsInput addGroceryItem={this.props.addGroceryItem}  marketId={this.props.farmersMarket.id}/>
+        <GroceryLists groceryList={this.props.groceryList} deleteGroceryItem={this.props.deleteGroceryItem} marketId={this.props.farmersMarket.id}/>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => { groceryLists: state.groceryLists }
+const mapStateToProps = state => { groceryList: state.groceryList }
 
 	const mapDispatchToProps = dispatch => {
 	    return {
-
+        addGroceryItem: groceryItem => dispatch({ type: 'ADD_GROCERY_ITEM', groceryItem }),
+        deleteGroceryItem: groceryItemId => dispatch({type: 'DELETE_GROCERY_ITEM', id: groceryItemId })
 	    };
 	};
 
