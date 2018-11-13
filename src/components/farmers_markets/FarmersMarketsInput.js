@@ -28,6 +28,7 @@ class FarmersMarketsInput extends Component {
     return (
       <div>
        <form onSubmit={(event) => this.handleOnSubmit(event)}>
+       <label>Search for a Market: </label>
          <input
            type="text"
            value={this.state.text}

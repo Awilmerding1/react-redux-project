@@ -1,21 +1,16 @@
 
 import React, { Component } from 'react';
-import FarmersMarketsContainer from '../../containers/FarmersMarketsContainer'
+import GroceryListsContainer from '../../containers/GroceryListsContainer'
 
 class FarmersMarket extends Component {
-
-  handleOnClick = () => {
-     this.props.deleteFarmersMarket(this.props.farmersMarket.id);
-  }
 
   render() {
     const { farmersMarket } = this.props;
 
     return (
       <div>
-        <li>
-          {farmersMarket.text}
-          <button onClick={this.handleOnClick}>Delete</button>
+        <li onClick={this.handleOnClick}>
+          {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough}
           <GroceryListsContainer farmersMarket={farmersMarket} />
         </li>
       </div>
