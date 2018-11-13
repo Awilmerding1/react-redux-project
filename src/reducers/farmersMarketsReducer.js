@@ -6,9 +6,11 @@ export default function farmersMarketsReducer(state ={loading:true, farmersMarke
     case 'LOADING_FARMERS_MARKETS':
        return {...state, loading: true}
     case 'FETCH_FARMERS_MARKETS':
+    const setIds = action.payload.map(market => market.id = cuidFn())
       return {...state, farmersMarkets: action.payload, loading: false}
       case 'ADD_GROCERY_ITEM':
         const groceryItem = { text: action.groceryItem.text, marketId: action.groceryItem.marketId, id: cuidFn() };
+        debugger;
         return { ...state,
           groceryList: [...state.groceryList, groceryItem]
         }

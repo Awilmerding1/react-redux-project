@@ -12,7 +12,7 @@ class FarmersMarketsInput extends Component {
 
   handleOnChange(event) {
    this.setState({
-     search: event.target.value,
+     search: event.target.value
    });
  }
 
@@ -25,7 +25,7 @@ class FarmersMarketsInput extends Component {
     return (
       <div>
        <form onSubmit={this.handleOnSubmit}>
-       <label>Search for a Market: </label>
+       <label>Search for a Market By ZipCode: </label>
          <input
            type="text"
            value={this.state.search}

@@ -12,12 +12,9 @@ class FarmersMarketsContainer extends Component {
      this.props.fetchFarmersMarkets()
    }
 
-
-handleSubmit = (data) => {
-  console.log(data)
-  let returnData = this.props.filterFetchFarmersMarkets(data)
-  console.log()
-   }
+  handleSubmit = (data) => {
+    this.props.filterFetchFarmersMarkets(data)
+  }
 
 
   render() {

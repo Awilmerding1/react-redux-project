@@ -10,7 +10,7 @@ class FarmersMarket extends Component {
     return (
       <div>
         <li onClick={this.handleOnClick}>
-          {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough}
+          {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough} {farmersMarket.zipcode}
           <GroceryListsContainer farmersMarket={farmersMarket} />
         </li>
       </div>
