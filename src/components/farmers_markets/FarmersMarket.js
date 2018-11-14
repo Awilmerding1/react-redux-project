@@ -8,7 +8,7 @@ class FarmersMarket extends Component {
     const { farmersMarket } = this.props;
 
     return (
-      <div>
+      <div className= "marketSearchandList">
         <div></div>
         <li onClick={this.handleOnClick} className="marketListItem">
           {farmersMarket.facilityname} - {farmersMarket.address}, {farmersMarket.borough} {farmersMarket.zipcode}<br/>

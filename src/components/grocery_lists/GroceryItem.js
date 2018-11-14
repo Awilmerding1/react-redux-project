@@ -12,9 +12,9 @@ class GroceryItem extends Component {
 
     return (
       <div>
-        <li>
-          {groceryItem.text}  
-          <button onClick={this.handleOnClick}> Delete </button>
+        <li className="groceryItem">
+          {groceryItem.text}
+          <button className="groceryButton" onClick={this.handleOnClick}> Delete </button>
         </li>
 
       </div>
