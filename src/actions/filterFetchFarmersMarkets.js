@@ -18,8 +18,7 @@ export function filterFetchFarmersMarkets(data) {
 	  dispatch({ type: 'LOADING_MARKETS' })
   return fetch(`https://data.cityofnewyork.us/resource/94pk-v63f.json`)
   .then(response => response.json())
-
-  .then(responseJSON => {return responseJSON.filter(r => r[dataValues[0]])})
+  .then(responseJSON => responseJSON.filter(r => {for(var i=0; i < dataValues.length; i++) {return r[dataValues[i]]}}))
   .then(farmersMarkets => dispatch({ type: 'FETCH_FARMERS_MARKETS', payload: farmersMarkets }))
 }
 }
