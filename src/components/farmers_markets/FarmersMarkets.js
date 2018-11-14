@@ -11,7 +11,7 @@ class FarmersMarkets extends Component {
 }
 
   render() {
-     const { farmersMarkets, deleteFarmersMarket, searchParams } = this.props;
+     const { farmersMarkets, searchParams } = this.props;
      const renderFarmersMarkets = farmersMarkets.map(farmersMarket => <FarmersMarket key={farmersMarket.id} farmersMarket={farmersMarket} />)
 
     return(

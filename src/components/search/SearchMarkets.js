@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import FarmersMarket from '../farmers_markets/FarmersMarket'
+import React from 'react';
 
 const SearchMarkets = ({searchParams}) =>
     <div>
-    <div>Searched for Markets Open On: {searchParams.searchParams.map(param => param.charAt(0).toUpperCase() + param.slice(1)).join(", ")}</div>
-    <div>Within the Zip Code: {searchParams.zip}</div>
+    <div className="searchResults">Searched for Markets Open On: {searchParams.searchParams.map(param => param.charAt(0).toUpperCase() + param.slice(1)).join(", ")}</div>
+    <div className="searchResults">Within the Zip Code: {searchParams.zip}</div>
     </div>
 
 export default SearchMarkets
