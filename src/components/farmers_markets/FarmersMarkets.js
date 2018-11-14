@@ -8,7 +8,8 @@ class FarmersMarkets extends Component {
      const renderFarmersMarkets = farmersMarkets.map(farmersMarket => <FarmersMarket key={farmersMarket.id} farmersMarket={farmersMarket} />)
     return(
       <div>
-      <div>Searched for Markets Open On: {searchParams.map(param => param.charAt(0).toUpperCase() + param.slice(1)).join(", ")}</div>
+      <div>Searched for Markets Open On: {searchParams.searchParams.map(param => param.charAt(0).toUpperCase() + param.slice(1)).join(", ")}</div>
+      <div>Within the Zip Code: {searchParams.zip}</div>
       <ul>
         {renderFarmersMarkets}
       </ul>

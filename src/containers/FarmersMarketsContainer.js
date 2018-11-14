@@ -11,7 +11,8 @@ class FarmersMarketsContainer extends Component {
   constructor() {
   super()
   this.state = {
-    searchParams: []
+    searchParams: [],
+    zip: ""
   }
 }
 
@@ -24,10 +25,16 @@ class FarmersMarketsContainer extends Component {
   }
 
   handleSearch = searchParams => {
+    if (!searchParams[0].match(/\d/)) {
      this.setState({searchParams: searchParams});
+   } else {
+     let zip = searchParams.shift()
+     this.setState({searchParams: searchParams, zip: zip})
+   }
+
   }
 
-  getSearchParams = () => (this.state.searchParams)
+  getSearchParams = () => (this.state)
 
   render() {
     return (
