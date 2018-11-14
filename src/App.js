@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="groceryListLink">See Grocery List(s)</div>
+        <div className="groceryListLink" >See Grocery List(s)</div>
         <FarmersMarketsContainer />
       </div>
 
