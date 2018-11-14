@@ -24,15 +24,13 @@ class FarmersMarketsInput extends Component {
     this.searchParams.shift()
   }
   this.props.handleSubmit(this.state)
+  this.props.handleSearch(this.searchParams)
   this.setState({
-    search: '',
-    searchParams: this.searchParams
+    search: ''
   });
 }
 
   render() {
-    let numberOfDays = Object.keys(this.state).length - 1
-    let days = Object.values(this.state)
     return (
       <div>
        <form onSubmit={this.handleOnSubmit}>
@@ -50,8 +48,7 @@ class FarmersMarketsInput extends Component {
          <label>Saturday</label><input type="checkbox" value="saturday" name="saturday" onChange={this.handleOnChange}></input>
          <label>Sunday</label><input type="checkbox" value="sunday" name="sunday" onChange={this.handleOnChange}></input><br/><br/>
          <input type="submit" />
-       </form>
-       <div>{this.searchParams.map(param => <li>{param}</li>)}</div>
+       </form><br/>
      </div>
     );
   }

@@ -8,6 +8,13 @@ import { connect } from 'react-redux';
 
 class FarmersMarketsContainer extends Component {
 
+  constructor() {
+  super()
+  this.state = {
+    searchParams: []
+  }
+}
+
   componentDidMount() {
      this.props.fetchFarmersMarkets()
    }
@@ -16,12 +23,17 @@ class FarmersMarketsContainer extends Component {
     this.props.filterFetchFarmersMarkets(data)
   }
 
+  handleSearch = searchParams => {
+     this.setState({searchParams: searchParams});
+  }
+
+  getSearchParams = () => (this.state.searchParams)
 
   render() {
     return (
       <div>
-        <FarmersMarketsInput handleSubmit={this.handleSubmit}/>
-        <FarmersMarkets farmersMarkets={this.props.farmersMarkets}/>
+        <FarmersMarketsInput handleSubmit={this.handleSubmit} handleSearch={this.handleSearch}/>
+        <FarmersMarkets farmersMarkets={this.props.farmersMarkets} searchParams={this.getSearchParams()}/>
       </div>
     )
   }
