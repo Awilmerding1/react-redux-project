@@ -14,20 +14,26 @@ class FarmersMarketsInput extends Component {
   handleOnChange = (event) =>{
    this.setState({
      [event.target.name]: event.target.value
-   });
+   })
+   this.searchParams.push(event.target.value)
+  console.log(this.state)
+  console.log(this.searchParams)
  }
 
  handleOnSubmit = (event) => {
   event.preventDefault();
-  this.searchParams = Object.values(this.state)
-  if (this.searchParams[0] === "") {
-    this.searchParams.shift()
-  }
+  console.log(this.searchParams)
+  // this.searchParams = Object.values(this.state)
+  // if (this.searchParams[0] === "") {
+  //   this.searchParams.shift()
+  // }
   this.props.handleSubmit(this.state)
-  this.props.handleSearch(this.searchParams)
-  this.setState({
-    search: ''
-  });
+  this.props.handleSearch(this.searchParams, this.state)
+  this.state = {search: ""}
+  // this.setState({
+  //   search: ''
+  // });
+  this.searchParams = []
 }
 
   render() {

@@ -5,21 +5,25 @@ class SearchMarkets extends Component {
 
   constructor(props) {
     super(props);
-    if (props.searchParams.searchParams !== [] && props.searchParams.zip !== ""){
-    this.state = {
-      searchParams: props.searchParams.searchParams,
-      zip: props.searchParams.zip
-    }
-  } else if (props.searchParams.searchParams !== [] && props.searchParams.zip === "") {
-    this.state = {
-      searchParams: props.searchParams.searchParams,
-      zip: false
-    }
-  } else if (props.searchParams.searchParams === [] && props.searchParams.zip !== "") {
-    this.state = {
-      searchParams: false,
-      zip: props.searchParams.zip
-    }
+  //   if (props.searchParams.searchParams !== [] && props.searchParams.zip !== ""){
+  //   this.state = {
+  //     searchParams: props.searchParams.searchParams,
+  //     zip: props.searchParams.zip
+  //   }
+  // } else if (props.searchParams.searchParams !== [] && props.searchParams.zip === "") {
+  //   this.state = {
+  //     searchParams: props.searchParams.searchParams,
+  //     zip: false
+  //   }
+  // } else if (props.searchParams.searchParams === [] && props.searchParams.zip !== "") {
+  //   this.state = {
+  //     searchParams: false,
+  //     zip: props.searchParams.zip
+  //   }
+  // }
+  this.state ={
+    searchParams: this.props.searchParams.searchParams,
+    zip: this.props.searchParams.zip
   }
   }
 

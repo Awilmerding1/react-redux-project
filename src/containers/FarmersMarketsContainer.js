@@ -25,14 +25,13 @@ class FarmersMarketsContainer extends Component {
     this.props.filterFetchFarmersMarkets(data)
   }
 
-  handleSearch = searchParams => {
-    if (!searchParams[0].match(/\d/)) {
-     this.setState({searchParams: searchParams});
-   } else {
-     let zip = searchParams.shift()
-     this.setState({searchParams: searchParams, zip: zip})
-   }
-
+  handleSearch = (searchParams, zip) => {
+    // if (!searchParams[0].match(/\d/)) {
+     // this.setState({searchParams: searchParams});
+   // } else {
+     // let zip = searchParams.shift()
+     this.setState({searchParams: searchParams, zip: zip.search})
+   // }
   }
 
   getSearchParams = () => (this.state)
