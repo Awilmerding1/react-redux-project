@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import FarmersMarketsInput from '../components/farmers_markets/FarmersMarketsInput'
 import FarmersMarkets from '../components/farmers_markets/FarmersMarkets'
 import { Link } from 'react-router-dom';
-
 import {fetchFarmersMarkets} from '../actions/fetchFarmersMarkets'
 import {filterFetchFarmersMarkets} from '../actions/filterFetchFarmersMarkets'
 

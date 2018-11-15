@@ -20,7 +20,7 @@ class App extends Component {
       		<React.Fragment>
           	<Route exact path="/" component={FarmersMarketsContainer} />
       		    <Route path="/groceries" render={routerProps => <FarmersMarketsList {...routerProps}
-              lists={this.props.groceryList}/>}/>
+              stateMarkets={this.props.state.farmersMarkets} stateList={this.props.state.groceryList}/>}/>
       		</React.Fragment>
       		</Router>
       </div>
@@ -29,6 +29,6 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => ({ state: state })
 
-
-export default App
+export default connect(mapStateToProps)(App)
