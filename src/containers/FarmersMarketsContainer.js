@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import FarmersMarketsInput from '../components/farmers_markets/FarmersMarketsInput'
 import FarmersMarkets from '../components/farmers_markets/FarmersMarkets'
+import { Link } from 'react-router-dom';
+
 import {fetchFarmersMarkets} from '../actions/fetchFarmersMarkets'
 import {filterFetchFarmersMarkets} from '../actions/filterFetchFarmersMarkets'
 
@@ -39,8 +41,11 @@ class FarmersMarketsContainer extends Component {
   render() {
     return (
       <div>
+      <div className="groceryListLink" ><Link to={'/groceries'}>Grocery Lists</Link></div>
+      <div>
         <FarmersMarketsInput handleSubmit={this.handleSubmit} handleSearch={this.handleSearch}/>
         <FarmersMarkets farmersMarkets={this.props.farmersMarkets} searchParams={this.getSearchParams()}/>
+      </div>
       </div>
     )
   }

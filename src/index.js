@@ -8,13 +8,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import farmersMarketsReducer from './reducers/farmersMarketsReducer'
+import GroceryLists from './components/grocery_lists/GroceryLists'
+import FarmersMarketsList from './components/farmers_markets/FarmersMarketsList'
+
 
 const store = createStore(farmersMarketsReducer, applyMiddleware(thunk)
 	);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+		<App props={store}/>
   </Provider>,
   document.getElementById('root'));
 
