@@ -6,17 +6,25 @@ class FarmersMarketsList extends Component {
     super(props);
     this.state = {
       markets: this.filterMarkets(),
-      items: []
+      items: this.props.stateList
     };
   };
 
+
+
   filterMarkets = () => {
-    console.log(this.mapStateList())
-    return this.props.stateMarkets.filter(market => this.mapStateList().includes(market.id) )
+    const filtered = this.props.stateMarkets.filter(market => this.mapStateList().includes(market.id))
+    const mapped = filtered.map(market => Object.assign(market, { items: this.props.stateList.filter(item => item.marketId === market.id)}))
+    console.log(mapped)
+    return mapped
   }
 
   mapStateList = () => {
     return this.props.stateList.map(list => list.marketId)
+  }
+
+  pairItemWithMarket = () => {
+
   }
 
 render() {
