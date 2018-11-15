@@ -5,8 +5,7 @@ class FarmersMarketsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markets: this.filterMarkets(),
-      items: this.props.stateList
+      markets: this.filterMarkets()
     };
   };
 
@@ -23,9 +22,6 @@ class FarmersMarketsList extends Component {
     return this.props.stateList.map(list => list.marketId)
   }
 
-  pairItemWithMarket = () => {
-
-  }
 
 render() {
   const { stateMarkets, stateList } = this.props;
@@ -34,8 +30,7 @@ render() {
 
   return (
   <div>
-      {this.state.markets.map(market => <li>{market.facilityname}</li>)}
-      {mapList}
+      {this.state.markets.map(market => <li>{market.facilityname} {market.items.map(item => <li>{item.text}</li>)}</li>)}
   </div>
 )
 }
