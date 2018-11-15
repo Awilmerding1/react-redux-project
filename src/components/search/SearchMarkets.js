@@ -24,7 +24,7 @@ class SearchMarkets extends Component {
 
     return (
       <div>
-        <div className="searchResults">{this.state.searchParams.map(p => "Searched for Markets Open On: " + p[Object.keys(p)].charAt(0).toUpperCase() + p[Object.keys(p)].slice(1)).join(", ")}</div>
+        <div className="searchResults">Searched for Markets Open On: {this.state.searchParams.map(p => p[Object.keys(p)].charAt(0).toUpperCase() + p[Object.keys(p)].slice(1)).join(", ")}</div>
         <div className="searchResults">{this.renderZip()}</div>
       </div>
     )
