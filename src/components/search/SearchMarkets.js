@@ -5,6 +5,7 @@ class SearchMarkets extends Component {
 
   constructor(props) {
     super(props);
+    debugger;
     if (props.searchParams.searchParams !== [] && props.searchParams.zip !== ""){
     this.state = {
       searchParams: props.searchParams.searchParams,
