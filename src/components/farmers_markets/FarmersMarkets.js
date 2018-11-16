@@ -8,6 +8,7 @@ class FarmersMarkets extends Component {
      const { farmersMarkets, searchParams } = this.props;
      const renderFarmersMarkets = farmersMarkets.map(farmersMarket => <FarmersMarket key={farmersMarket.id} farmersMarket={farmersMarket} />)
      const renderSearchMarkets = () => {if (searchParams.searchParams.length > 0 || searchParams.zip !== "") {return <SearchMarkets searchParams={searchParams}/>}}
+
     return(
       <div>
         <div>{renderSearchMarkets()}</div>
