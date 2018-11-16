@@ -21,10 +21,11 @@ class SearchMarkets extends Component {
   }
 
   render () {
-
+        const a = () => {console.log(this.state.searchParams)}
     return (
       <div>
-        <div className="searchResults">Searched for Markets Open On: {this.state.searchParams.map(p => p[Object.keys(p)[0]].charAt(0).toUpperCase() + p[Object.keys(p)[0]].slice(1)).join(", ")}</div>
+      <div>{a()}</div>
+        <div className="searchResults">Searched for Markets Open On: {this.state.searchParams.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(", ")}</div>
         <div className="searchResults">{this.renderZip()}</div>
       </div>
     )
