@@ -4,7 +4,15 @@ export function filterFetchFarmersMarkets(data) {
   let dataValues = Object.values(data)
   dataValues.shift()
   let filteredMarkets = []
-  if (data.search !== "" && dataValues.length > 0) {
+  if (data.search === "" && dataValues.length < 1) {
+    return (dispatch) => {
+  	  dispatch({ type: 'LOADING_MARKETS' })
+    return fetch('https://data.cityofnewyork.us/resource/94pk-v63f.json')
+    .then(response => response.json())
+    .then(responseJSON => {return responseJSON})
+    .then(farmersMarkets => dispatch({ type: 'FETCH_FARMERS_MARKETS', payload: farmersMarkets }))
+  }
+}else if (data.search !== "" && dataValues.length > 0) {
   return (dispatch) => {
 	  dispatch({ type: 'LOADING_MARKETS' })
   return fetch(`https://data.cityofnewyork.us/resource/94pk-v63f.json?zipcode=${data.search}`)

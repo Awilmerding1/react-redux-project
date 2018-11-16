@@ -26,11 +26,9 @@ class FarmersMarketsContainer extends Component {
   }
 
   handleSearch = (searchParams, zip) => {
-    // if (!searchParams[0].match(/\d/)) {
-     // this.setState({searchParams: searchParams});
-   // } else {
-     // let zip = searchParams.shift()
-     this.setState({searchParams: searchParams, zip: zip.search})
+    console.log(searchParams.map(m => {return Object.keys(m)[0]}))
+    console.log(zip)
+     this.setState({searchParams: searchParams.map(m => {return Object.keys(m)[0]}), zip: zip.search})
    // }
   }
 
