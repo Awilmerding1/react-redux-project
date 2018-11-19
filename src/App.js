@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import logo from './logo.svg';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -18,7 +19,8 @@ class App extends Component {
       <div className="App">
         <Router>
       		<React.Fragment>
-          	<Route exact path="/" component={FarmersMarketsContainer} />
+          <Redirect from="/" to="/farmersmarkets"/>
+          	<Route exact path="/farmersmarkets" component={FarmersMarketsContainer} />
       		    <Route path="/groceries" render={routerProps => <FarmersMarketsList {...routerProps}
               stateMarkets={this.props.state.farmersMarkets} stateList={this.props.state.groceryList}/>}/>
       		</React.Fragment>
