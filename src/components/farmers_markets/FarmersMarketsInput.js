@@ -50,8 +50,6 @@ class FarmersMarketsInput extends Component {
 
  handleOnSubmit = (event) => {
   event.preventDefault();
-  console.log(this.searchParams)
-  console.log(Object.values(this.searchParams.filter(p => p.checked === true)))
   this.props.handleSubmit(this.state)
   this.props.handleSearch(Object.keys(this.state).filter(m => m !== "search"), this.state)
   this.state = {search: ""}
