@@ -26,10 +26,7 @@ class FarmersMarketsContainer extends Component {
   }
 
   handleSearch = (searchParams, zip) => {
-    console.log(searchParams.map(m => {return Object.keys(m)[0]}))
-    console.log(zip)
-     this.setState({searchParams: searchParams.map(m => {return Object.keys(m)[0]}), zip: zip.search})
-   // }
+     this.setState({searchParams: searchParams, zip: zip.search})
   }
 
   getSearchParams = () => (this.state)

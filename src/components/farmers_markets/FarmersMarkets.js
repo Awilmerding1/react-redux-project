@@ -7,11 +7,11 @@ class FarmersMarkets extends Component {
   render() {
      const { farmersMarkets, searchParams } = this.props;
      const renderFarmersMarkets = farmersMarkets.map(farmersMarket => <FarmersMarket key={farmersMarket.id} farmersMarket={farmersMarket} />)
-     const renderSearchMarkets = () => {if (searchParams.searchParams.length > 0 || searchParams.zip !== "") {return <SearchMarkets searchParams={searchParams}/>}}
+     const renderSearchMarkets = (searchParams) => { if(searchParams.searchParams.length > 0 || searchParams.zip !== "")  {return <SearchMarkets searchParams={searchParams}/>}}
 
     return(
       <div>
-        <div>{renderSearchMarkets()}</div>
+        <div>{renderSearchMarkets(searchParams)}</div>
       <ul>
         {renderFarmersMarkets}
       </ul>

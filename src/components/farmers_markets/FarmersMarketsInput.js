@@ -32,7 +32,6 @@ class FarmersMarketsInput extends Component {
    if (event.target.name !== "search") {
       if (event.target.checked === true) {
         this.searchParams = this.searchParams.map(el => {
-
               if(Object.keys(el)[0] === [event.target.name][0]) {
                   return {[event.target.name]: event.target.value, checked: true}
                  }
@@ -51,9 +50,10 @@ class FarmersMarketsInput extends Component {
 
  handleOnSubmit = (event) => {
   event.preventDefault();
-  console.log(this.state)
+  console.log(this.searchParams)
+  console.log(Object.values(this.searchParams.filter(p => p.checked === true)))
   this.props.handleSubmit(this.state)
-  this.props.handleSearch(Object.values(this.searchParams.filter(p => p.checked === true)), this.state)
+  this.props.handleSearch(Object.keys(this.state).filter(m => m !== "search"), this.state)
   this.state = {search: ""}
   console.log(this.state)
   this.searchParams = []
