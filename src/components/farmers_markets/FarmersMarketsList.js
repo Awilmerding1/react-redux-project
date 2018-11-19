@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import GroceryListsContainer from '../../containers/GroceryListsContainer'
+import GroceryListsInput from '../grocery_lists/GroceryListsInput'
 
 class FarmersMarketsList extends Component {
 
@@ -26,7 +28,7 @@ render() {
 
   return (
   <div>
-      {this.state.markets.map(market => <p>{market.facilityname} {market.items.map(item => <li>{item.text}</li>)}</p>)}
+      <div>{this.state.markets.map(market => <div>{market.facilityname} {<GroceryListsContainer farmersMarket={market}/>}</div>)} </div>
   </div>
 )
 }
