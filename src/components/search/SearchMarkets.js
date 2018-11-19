@@ -1,18 +1,12 @@
-// import React from 'react';
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchMarkets extends Component {
+const SearchMarkets = ({searchParams}) =>
+
+    <div>
+      <div className="searchResults">{searchParams.searchParams.length > 0 ? "Searched for Markets Open On: " + searchParams.searchParams.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(", ") : <p></p>}</div>
+      <div className="searchResults">{searchParams.zip !== "" ? "Searched for Markets Within the Zip Code: " + searchParams.zip : <p></p>}</div>
+    </div>
 
 
-  render () {
-    return (
-      <div>
-        <div className="searchResults">{this.props.searchParams.searchParams.length > 0 ? "Searched for Markets Open On: " + this.props.searchParams.searchParams.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(", ") : <p></p>}</div>
-        <div className="searchResults">{this.props.searchParams.zip !== "" ? "Within the Zip Code: " + this.props.searchParams.zip : <p></p>}</div>
-      </div>
-    )
-  }
-
-}
 
 export default SearchMarkets
