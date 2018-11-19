@@ -19,7 +19,8 @@ class App extends Component {
       <div className="App">
         <Router>
       		<React.Fragment>
-          	<Route exact path="/" component={FarmersMarketsContainer} />
+          	<Route exact path="/farmersmarkets" component={FarmersMarketsContainer}/>
+            <Route exact path="/" component={FarmersMarketsContainer}/>
       		    <Route path="/groceries" render={routerProps => <FarmersMarketsList {...routerProps}
               stateMarkets={this.props.state.farmersMarkets} stateList={this.props.state.groceryList} />}/>
       		</React.Fragment>

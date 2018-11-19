@@ -28,7 +28,7 @@ render() {
 
   return (
   <div>
-      <div>{this.state.markets.map(market => <div>{market.facilityname} {<GroceryListsContainer farmersMarket={market}/>}</div>)} </div>
+      <div>{this.state.markets.map(market => <div>{market.facilityname}<br/> {<GroceryListsContainer farmersMarket={market}/>}<br/></div>)} </div>
   </div>
 )
 }

@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 
 class GroceryListsContainer extends Component {
 
-
   render() {
     return (
       <div>
-        <GroceryListsInput addGroceryItem={this.props.addGroceryItem}  marketId={this.props.farmersMarket.id}/>
-        <GroceryList groceryList={this.props.groceryList} deleteGroceryItem={this.props.deleteGroceryItem} marketId={this.props.farmersMarket.id}/>
+        <div><GroceryListsInput addGroceryItem={this.props.addGroceryItem}  marketId={this.props.farmersMarket.id}/></div>
+        <div><GroceryList groceryList={this.props.groceryList} deleteGroceryItem={this.props.deleteGroceryItem} marketId={this.props.farmersMarket.id}/></div>
       </div>
     )
   }
