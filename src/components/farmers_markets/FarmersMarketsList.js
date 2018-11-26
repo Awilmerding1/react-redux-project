@@ -44,8 +44,8 @@ render() {
       <ul>{!this.state.clicked && this.state.markets.map(market => <FarmersMarket key={market.id} farmersMarket={market}/>)} </ul>
     </div>
     <div>
-      <Route path="/groceries/combined" render={routerProps => <CombinedGroceryList {...routerProps}
-      markets={this.state.markets} />} />
+      <Route path="/groceries/combined" render={routerProps => <ol><CombinedGroceryList {...routerProps}
+      markets={this.state.markets} /></ol>} />
     </div>
   </div>
 )
