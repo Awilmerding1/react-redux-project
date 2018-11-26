@@ -21,25 +21,21 @@ class CombinedGroceryList extends Component  {
   }
 
   clicked = () => {
-    const { clicked } = this.state.clicked;
-    this.setState({clicked: !clicked})
+    this.setState({clicked: !this.state.clicked})
   }
 
   sortGroceries = () => {
-    const { sortGroceries } = this.state.sortGroceries;
-    this.setState({sortGroceries: !sortGroceries})
+    this.setState({sortGroceries: !this.state.sortGroceries})
   }
 
 render () {
 
 return (
   <div>
-    <div className="showMarketNames" onClick={this.clicked}>Show Market Names</div>
-    <div className="sortGroceries" onClick={this.sortGroceries}>Sort By Market</div>
+    <div className="showMarketNames" onClick={this.clicked}>Show/Hide Market Names</div>
+    <div className="sortGroceries" onClick={this.sortGroceries}>{!this.state.sortGroceries ? "Sort By Market" : "Show One List"}</div>
     <div>{!this.state.sortGroceries && this.state.markets.map(market => market.items.map(item => <li key={item.id}>{item.text} {!this.state.clicked ? " " :  "- " + market.facilityname}</li>))}</div>
     <div>{this.state.sortGroceries && this.state.markets.map(market => <p className="marketSort">{market.facilityname} {market.items.map(item => <li className="sortedByMarket" key={item.id}>{item.text}</li>)}</p>)}</div>
-    <div>{console.log(this.state.sortGroceries)}</div>
-    <div>{console.log(this.state.clicked)}</div>
   </div>
 
 )

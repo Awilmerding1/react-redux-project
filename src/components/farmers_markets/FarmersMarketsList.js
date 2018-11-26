@@ -13,7 +13,8 @@ class FarmersMarketsList extends Component {
     super(props);
     this.state = {
       markets: this.filterMarkets(),
-      clicked: false
+      clicked: false,
+      hideLink: false
     };
   };
 
@@ -29,17 +30,18 @@ class FarmersMarketsList extends Component {
   }
 
 hideList = () => {
-   const { clicked } = this.state.clicked;
-  this.setState({clicked: !clicked})
+  this.setState({clicked: !this.state.clicked, hideLink: !this.state.hideLink})
 }
 
 
 render() {
   const { stateMarkets, stateList} = this.props;
 
+  const style = (this.state.hideLink || this.state.markets.length < 1) ? {display: "none"} : {};
+
   return (
   <div>
-    <div className="combinedGroceryListLink" ><Link to={'/groceries/combined'} onClick={this.hideList}>Combined Grocery List</Link></div>
+    <div className="combinedGroceryListLink" ><Link to={'/groceries/combined'} style={style} onClick={this.hideList}>Combined Grocery List</Link></div>
     <div>
       <ul>{!this.state.clicked && this.state.markets.map(market => <FarmersMarket key={market.id} farmersMarket={market}/>)} </ul>
     </div>
