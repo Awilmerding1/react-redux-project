@@ -29,7 +29,7 @@ render () {
 return (
   <div>
     <div className="showMarketNames" onClick={this.clicked}>Show Market Names</div>
-    <div>{ this.state.markets.map(market => <li>{market.items.map(item => item.text)  + (this.state.clicked ? " " :  "- " + market.facilityname)}</li>)}</div>
+    <div>{this.state.markets.map(market => market.items.map(item => <li key={item.id}>{item.text} {!this.state.clicked ? " " :  "- " + market.facilityname}</li>))}</div>
   </div>
 
 )
