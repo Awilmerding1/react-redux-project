@@ -7,7 +7,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import FarmersMarketsContainer from './containers/FarmersMarketsContainer';
-import GroceryLists from './components/grocery_lists/GroceryLists'
 import FarmersMarketsList from './components/farmers_markets/FarmersMarketsList'
 
 

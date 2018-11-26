@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
+import { Route } from 'react-router-dom';
 import GroceryListsContainer from '../../containers/GroceryListsContainer'
 import GroceryListsInput from '../grocery_lists/GroceryListsInput'
+import CombinedGroceryList from '../grocery_lists/CombinedGroceryList'
+import FarmersMarket from './FarmersMarket'
+import { Link } from 'react-router-dom';
+
 
 class FarmersMarketsList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      markets: this.filterMarkets()
+      markets: this.filterMarkets(),
+      clicked: false
     };
   };
 
@@ -22,13 +28,25 @@ class FarmersMarketsList extends Component {
     return this.props.stateList.map(list => list.marketId)
   }
 
+hideList = () => {
+   const { clicked } = this.state.clicked;
+  this.setState({clicked: !clicked})
+}
+
 
 render() {
-  const { stateMarkets, stateList } = this.props;
+  const { stateMarkets, stateList} = this.props;
 
   return (
   <div>
-      <div>{this.state.markets.map(market => <div>{market.facilityname}<br/> {<GroceryListsContainer farmersMarket={market}/>}<br/></div>)} </div>
+    <div className="combinedGroceryListLink" ><Link to={'/groceries/combined'} onClick={this.hideList}>Combined Grocery List</Link></div>
+    <div>
+      <ul>{!this.state.clicked && this.state.markets.map(market => <FarmersMarket key={market.id} farmersMarket={market}/>)} </ul>
+    </div>
+    <div>
+      <Route path="/groceries/combined" render={routerProps => <CombinedGroceryList {...routerProps}
+      markets={this.state.markets} />} />
+    </div>
   </div>
 )
 }

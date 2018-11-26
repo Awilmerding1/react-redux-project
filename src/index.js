@@ -8,7 +8,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import farmersMarketsReducer from './reducers/farmersMarketsReducer'
-import GroceryLists from './components/grocery_lists/GroceryLists'
 import FarmersMarketsList from './components/farmers_markets/FarmersMarketsList'
 
 

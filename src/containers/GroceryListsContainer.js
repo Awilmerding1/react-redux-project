@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import GroceryListsInput from '../components/grocery_lists/GroceryListsInput'
 import GroceryList from '../components/grocery_lists/GroceryList'
+import CombinedGroceryList from '../components/grocery_lists/CombinedGroceryList'
 import { connect } from 'react-redux';
 
 class GroceryListsContainer extends Component {
