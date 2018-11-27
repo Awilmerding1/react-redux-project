@@ -4,8 +4,10 @@ import GroceryListsContainer from '../../containers/GroceryListsContainer'
 import GroceryListsInput from '../grocery_lists/GroceryListsInput'
 import CombinedGroceryList from '../grocery_lists/CombinedGroceryList'
 import FarmersMarket from './FarmersMarket'
+import FarmersMarkets from './FarmersMarkets'
+import FarmersMarketsContainer from '../../containers/FarmersMarketsContainer';
 import { Link } from 'react-router-dom';
-
+import { Redirect } from 'react-router-dom'
 
 class FarmersMarketsList extends Component {
 
@@ -34,6 +36,7 @@ hideList = () => {
 }
 
 
+
 render() {
   const { stateMarkets, stateList} = this.props;
 
@@ -41,14 +44,16 @@ render() {
 
   return (
   <div>
-    <div className="combinedGroceryListLink" ><Link to={'/groceries/combined'} style={style} onClick={this.hideList}>Combined Grocery List</Link></div>
+    <div>{this.props.stateList.length < 1 ? <p className="noGroceries">Your Grocery List is Empty. Click <Link to={'/farmersmarkets'}>here</Link> to search markets and start your list!</p> : <p></p>}</div>
+    <div className="combinedGroceryListLink" ><Link to={'/groceries/list'} style={style} onClick={this.hideList}>View Grocery List</Link></div>
     <div>
       <ul>{!this.state.clicked && this.state.markets.map(market => <FarmersMarket key={market.id} farmersMarket={market}/>)} </ul>
     </div>
     <div>
-      <Route path="/groceries/combined" render={routerProps => <ol><CombinedGroceryList {...routerProps}
+      <Route path="/groceries/list" render={routerProps => <ol><CombinedGroceryList {...routerProps}
       markets={this.state.markets} /></ol>} />
     </div>
+
   </div>
 )
 }

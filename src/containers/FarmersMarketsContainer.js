@@ -14,8 +14,8 @@ class FarmersMarketsContainer extends Component {
   this.state = {
     searchParams: [],
     zip: ""
+    }
   }
-}
 
   componentDidMount() {
     this.props.history.push('/farmersmarkets')
@@ -33,9 +33,10 @@ class FarmersMarketsContainer extends Component {
   getSearchParams = () => (this.state)
 
   render() {
+
     return (
       <div>
-      <div className="groceryListLink" ><Link to={'/groceries'}>Grocery Lists</Link></div>
+      <div className="groceryListLink" ><Link to={'/groceries'}>Review Grocery Lists</Link></div>
       <div>
         <FarmersMarketsInput handleSubmit={this.handleSubmit} handleSearch={this.handleSearch}/>
         <FarmersMarkets farmersMarkets={this.props.farmersMarkets} searchParams={this.getSearchParams()}/>
