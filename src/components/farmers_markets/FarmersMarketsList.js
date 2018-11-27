@@ -48,7 +48,7 @@ render() {
   <div>{console.log(searchParams)}</div>
     <div>{this.props.stateList.length < 1 ? <p className="noGroceries">Your Grocery List is Empty. Click <Link to={'/farmersmarkets'}>here</Link> to search markets and start your list!</p> : <p></p>}</div>
     <div className="combinedGroceryListLink" ><Link to={'/groceries/list'} style={style} onClick={this.hideList}>View Grocery List</Link></div>
-    <div className="combinedGroceryListLink" ><Link to={{pathname: '/farmersmarkets', farmersMarkets: {stateMarkets}, searchParams: {searchParams}}} style={style} onClick={this.hideList}>Markets</Link></div>
+    <div className="combinedGroceryListLink" ><Link to={{pathname: '/farmersmarkets', searchParams: {searchParams}}} style={style} onClick={this.hideList}>Markets</Link></div>
     <div>
       <ul>{!this.state.clicked && this.state.markets.map(market => <FarmersMarket key={market.id} farmersMarket={market}/>)} </ul>
     </div>
@@ -57,7 +57,6 @@ render() {
       markets={this.state.markets} /></ol>} />
     </div>
 
-      <Route exact path="/farmersmarkets" render={routerProps => <FarmersMarketsContainer {...routerProps} searchParams={searchParams}/>}/>
 
   </div>
 )

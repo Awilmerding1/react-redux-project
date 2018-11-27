@@ -12,8 +12,8 @@ import { connect } from 'react-redux';
 
 class FarmersMarketsContainer extends Component {
 
-  constructor() {
-  super()
+  constructor(props) {
+  super(props)
   this.state = {
     searchParams: [],
     zip: ""
@@ -22,7 +22,9 @@ class FarmersMarketsContainer extends Component {
 
   componentDidMount() {
     this.props.history.push('/farmersmarkets')
-    this.props.fetchFarmersMarkets()
+    if (this.props.farmersMarkets.length < 1 && this.props.groceryList.length < 1) {
+      this.props.fetchFarmersMarkets()
+    }
    }
 
   handleSubmit = (data) => {
