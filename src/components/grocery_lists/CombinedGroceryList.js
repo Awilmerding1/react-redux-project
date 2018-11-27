@@ -48,7 +48,7 @@ return (
     <div className="sortDay" onClick={this.sortDay}>Sort By Day</div>
     <div>{!this.state.sortGroceries && !this.state.sortDay && this.state.markets.map(market => market.items.map(item => <li key={item.id}>{item.text} {!this.state.clicked ? " " :  "- " + market.facilityname}</li>))}</div>
     <div>{this.state.sortGroceries && !this.state.sortDay && this.state.markets.map(market => <p key={cuidFn()} className="marketSort">{market.facilityname} {market.items.map(item => <li className="sortedByMarket" key={cuidFn()}>{item.text}</li>)}</p>)}</div>
-    <div>{this.state.sortDay  && this.getDays().map(day => <p className="marketSort" key={cuidFn()}>{day.charAt(0).toUpperCase() + day.slice(1)} {this.props.markets.filter(market => market[day]).map(market => <li className="sortedByMarket" key={cuidFn()}>{market.items.map(item => item.text)} {!this.state.clicked ? " " :  "- " + market.facilityname}</li>)}</p>)}</div>
+    <div>{this.state.sortDay && this.getDays().map(day => <p className="marketSort" key={cuidFn()}>{day.charAt(0).toUpperCase() + day.slice(1)} {this.props.markets.filter(market => market[day]).map(market => <li className="sortedByMarket" key={cuidFn()}>{market.items.map(item => item.text)} {!this.state.clicked ? " " :  "- " + market.facilityname}</li>)}</p>)}</div>
   </div>
 
 )

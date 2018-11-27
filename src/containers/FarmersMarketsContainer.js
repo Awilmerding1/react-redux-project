@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import FarmersMarketsInput from '../components/farmers_markets/FarmersMarketsInput'
 import FarmersMarkets from '../components/farmers_markets/FarmersMarkets'
+import FarmersMarketsList from '../components/farmers_markets/FarmersMarketsList'
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {fetchFarmersMarkets} from '../actions/fetchFarmersMarkets'
 import {filterFetchFarmersMarkets} from '../actions/filterFetchFarmersMarkets'
 
@@ -19,7 +22,7 @@ class FarmersMarketsContainer extends Component {
 
   componentDidMount() {
     this.props.history.push('/farmersmarkets')
-     this.props.fetchFarmersMarkets()
+    this.props.fetchFarmersMarkets()
    }
 
   handleSubmit = (data) => {
@@ -27,20 +30,24 @@ class FarmersMarketsContainer extends Component {
   }
 
   handleSearch = (searchParams, zip) => {
-     this.setState({searchParams: searchParams, zip: zip.search})
+    this.setState({searchParams: searchParams, zip: zip.search}, () => {this.props.searchParams(this.state)})
   }
 
   getSearchParams = () => (this.state)
+
 
   render() {
 
     return (
       <div>
+
       <div className="groceryListLink" ><Link to={'/groceries'}>Review Grocery Lists</Link></div>
       <div>
         <FarmersMarketsInput handleSubmit={this.handleSubmit} handleSearch={this.handleSearch}/>
         <FarmersMarkets farmersMarkets={this.props.farmersMarkets} searchParams={this.getSearchParams()}/>
       </div>
+
+
       </div>
     )
   }
@@ -49,7 +56,8 @@ class FarmersMarketsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    farmersMarkets: state.farmersMarkets
+    farmersMarkets: state.farmersMarkets,
+    groceryList: state.groceryList
   };
 }
 
