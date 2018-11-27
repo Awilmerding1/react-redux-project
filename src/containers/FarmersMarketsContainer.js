@@ -32,7 +32,7 @@ class FarmersMarketsContainer extends Component {
   }
 
   handleSearch = (searchParams, zip) => {
-    this.setState({searchParams: searchParams, zip: zip.search}, () => {this.props.searchParams(this.state)})
+    this.setState({searchParams: searchParams, zip: zip.search})
   }
 
   getSearchParams = () => (this.state)

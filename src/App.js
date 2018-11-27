@@ -12,31 +12,16 @@ import FarmersMarketsList from './components/farmers_markets/FarmersMarketsList'
 
 class App extends Component {
 
-  constructor() {
-  super()
-  this.state = {
-    searchParams: [],
-    zip: ""
-    }
-  }
-
-
-  getSearch = (state) => {
-     this.setState({searchParams: state.searchParams, zip: state.zip})
-  }
-
-  getSearchParams = () => (this.state)
 
   render() {
     return (
       <div className="App">
-      <div>{console.log(this.state)}</div>
         <Router>
       		<React.Fragment>
-          	<Route path="/farmersmarkets" render={routerProps => <FarmersMarketsContainer {...routerProps} searchParams={this.getSearch}/>}/>
+          	<Route path="/farmersmarkets" component={FarmersMarketsContainer }/>
             <Route exact path="/" component={FarmersMarketsContainer}/>
             <Route path="/groceries" render={routerProps => <FarmersMarketsList {...routerProps}
-              stateMarkets={this.props.state.farmersMarkets} stateList={this.props.state.groceryList} searchParams={this.getSearchParams()}/>}/>
+              stateMarkets={this.props.state.farmersMarkets} stateList={this.props.state.groceryList}/>}/>
       		</React.Fragment>
       		</Router>
       </div>
